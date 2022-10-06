@@ -84,11 +84,14 @@ class ApplicationController < Sinatra::Base
     else
       Team.create(user_id: params[:user_id] ,player_id: params[:player_id])
       fav = Player.find(params[:player_id])
-      fav.is_drafted = true
-      fav.save
     end
-
     fav.to_json
+  end
+
+  patch '/is_drafted/:id' do
+    player = Player.find(params[:id])
+    player.update(is_drafted: params[:is_drafted])
+    player.to_json
   end
 
   delete '/fav_delete/:user/:player' do
