@@ -5,6 +5,8 @@ Favorite.delete_all
 Favorite.reset_pk_sequence
 Team.delete_all
 Team.reset_pk_sequence
+User.delete_all
+User.reset_pk_sequence
 
 puts "Seeding players..."
 
@@ -34,4 +36,26 @@ i=1
     i = i + 1
 end
 
-puts "Done seeding!"
+puts "Done seeding Players!"
+# puts "Seeding Favs..."
+
+# Favorite.create(user_id: 1, player_id: 64, flex: 0, defense: 0, position: "Quarterback")
+# Favorite.create(user_id: 1, player_id: 330, flex: 0, defense: 0, position: "Quarterback")
+# Favorite.create(user_id: 1, player_id: 83, flex: 0, defense: 0, position: "Running Back")
+# Favorite.create(user_id: 1, player_id: 193, flex: 0, defense: 0, position: "Running Back")
+# Favorite.create(user_id: 1, player_id: 316, flex: 0, defense: 0, position: "Running Back")
+# Favorite.create(user_id: 1, player_id: 2, flex: 0, defense: 0, position: "Wide Receiver")
+# Favorite.create(user_id: 1, player_id: 25, flex: 0, defense: 0, position: "Wide Receiver")
+# Favorite.create(user_id: 1, player_id: 79, flex: 0, defense: 0, position: "Wide Receiver")
+# Favorite.create(user_id: 1, player_id: 7, flex: 0, defense: 0, position: "Tight End")
+# Favorite.create(user_id: 1, player_id: 12, flex: 0, defense: 0, position: "Tight End")
+# Favorite.create(user_id: 1, player_id: 78, flex: 0, defense: 0, position: "Tight End")
+# Favorite.create(user_id: 1, player_id: 61, flex: 0, defense: 0, position: "Place kicker")
+# Favorite.create(user_id: 1, player_id: 120, flex: 0, defense: 0, position: "Place kicker")
+# Favorite.create(user_id: 1, player_id: 31, flex: 0, defense: 1, position: "Linebacker")
+# Favorite.create(user_id: 1, player_id: 395, flex: 0, defense: 1, position: "Tight End")
+# Favorite.create(user_id: 1, player_id: 750, flex: 1, defense: 0, position: "Running Back")
+# Favorite.create(user_id: 1, player_id: 456, flex: 1, defense: 0, position: "Wide Receiver")
+# Favorite.create(user_id: 1, player_id: 765, flex: 1, defense: 0, position: "Tight End")
+
+# puts "Done Seedig!"

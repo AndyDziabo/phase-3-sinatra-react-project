@@ -2,6 +2,16 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
+  get '/users' do
+    users = User.all
+    users.to_json
+  end
+
+  get '/user_count' do
+    count = User.all.count
+    count.to_json
+  end
+
   get "/players" do
     player = Player.all
     player.to_json
@@ -67,8 +77,25 @@ class ApplicationController < Sinatra::Base
     info.to_json
   end
 
+  post '/add_user' do
+    # if User.where({name: params[:name]}).present?
+    #   user = "duplicate"
+    # else
+      user = User.create(name: params[:name], team_name: params[:team_name])
+    # end
+    user.to_json
+  end
+
+  post '/add_team' do
+    # if Team.where({name: params[:name], user_id: params[:user_id]})
+    #   team = "duplicate"
+    # else
+      team = Team.create(name: params[:name], user_id: params[:user_id])
+    # end
+    team.to_json
+  end
+
   post '/add_favorite' do
-    # binding.pry
     if Favorite.where({user_id: params[:user_id], player_id: params[:player_id]}).present?
       fav = "duplicate"
     else
@@ -82,7 +109,7 @@ class ApplicationController < Sinatra::Base
     if Team.where({user_id: params[:user_id], player_id: params[:player_id]}).present?
       fav = "duplicate"
     else
-      Team.create(user_id: params[:user_id] ,player_id: params[:player_id])
+      Team.create(name: params[:name], user_id: params[:user_id] ,player_id: params[:player_id])
       fav = Player.find(params[:player_id])
     end
     fav.to_json
