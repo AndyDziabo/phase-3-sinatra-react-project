@@ -28,6 +28,31 @@ class ApplicationController < Sinatra::Base
     favorites.to_json
   end
 
+  get '/teams/:id' do
+    teams = Team.where(user_id: params[:id])
+    teams.to_json
+  end
+
+  get '/teams/player_name/:player_id' do
+    player = Player.find(params[:player_id])
+    player.to_json
+  end 
+
+  get '/teams/starting_lineup/:id' do
+    team = Team.where({user_id: params[:id], starter: true})
+    team.to_json
+  end
+
+  get '/teams/benched/:id' do
+    team = Team.where({user_id: params[:id], starter: false})
+    team.to_json
+  end
+
+  get '/starter_count/:id' do
+    count = Team.where({user_id: params[:id], starter: true}).count
+    count.to_json
+  end
+
   get "/team_name" do
     team = Player.pluck(:team_name).uniq
     team.to_json
@@ -78,20 +103,12 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/add_user' do
-    # if User.where({name: params[:name]}).present?
-    #   user = "duplicate"
-    # else
       user = User.create(name: params[:name], team_name: params[:team_name])
-    # end
     user.to_json
   end
 
   post '/add_team' do
-    # if Team.where({name: params[:name], user_id: params[:user_id]})
-    #   team = "duplicate"
-    # else
       team = Team.create(name: params[:name], user_id: params[:user_id])
-    # end
     team.to_json
   end
 
@@ -109,7 +126,7 @@ class ApplicationController < Sinatra::Base
     if Team.where({user_id: params[:user_id], player_id: params[:player_id]}).present?
       fav = "duplicate"
     else
-      Team.create(name: params[:name], user_id: params[:user_id] ,player_id: params[:player_id])
+      Team.create(name: params[:name], user_id: params[:user_id] ,player_id: params[:player_id], starter: false)
       fav = Player.find(params[:player_id])
     end
     fav.to_json
@@ -119,6 +136,12 @@ class ApplicationController < Sinatra::Base
     player = Player.find(params[:id])
     player.update(is_drafted: params[:is_drafted])
     player.to_json
+  end
+
+  patch '/teams/:id' do
+    team = Team.find(params[:id])
+    team.update(starter: params[:starter])
+    team.to_json
   end
 
   delete '/fav_delete/:user/:player' do
