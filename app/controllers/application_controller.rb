@@ -126,7 +126,7 @@ class ApplicationController < Sinatra::Base
     if Team.where({user_id: params[:user_id], player_id: params[:player_id]}).present?
       fav = "duplicate"
     else
-      Team.create(name: params[:name], user_id: params[:user_id] ,player_id: params[:player_id], starter: false)
+      Team.create(name: params[:name], user_id: params[:user_id] ,player_id: params[:player_id], starter: false, position: params[:position], flex: false, defense: params[:defense])
       fav = Player.find(params[:player_id])
     end
     fav.to_json
@@ -140,7 +140,7 @@ class ApplicationController < Sinatra::Base
 
   patch '/teams/:id' do
     team = Team.find(params[:id])
-    team.update(starter: params[:starter])
+    team.update(starter: params[:starter], flex: params[:flex])
     team.to_json
   end
 
