@@ -18,18 +18,20 @@ i=1
     player_hash["athletes"].each do |group|
         group["items"].each do |p|
             if p["status"]["name"] != "Practice Squad"
-                Player.create(
-                    name: p["fullName"],
-                    position: p["position"]["name"],
-                    number: p["jersey"],
-                    status: p["status"]["name"],
-                    is_drafted: false,
-                    team_name: player_hash["team"]["name"],
-                    team_location: player_hash["team"]["location"],
-                    team_logo: player_hash["team"]["logo"],
-                    image: p["headshot"],
-                    catagory: group["position"]                
-                )
+                if p["position"]["name"] != "Offensive Tackle" && p["position"]["name"] != "Guard" && p["position"]["name"] != "Center" && p["position"]["name"] != "Punter" && p["position"]["name"] != "Long Snapper"
+                    Player.create(
+                        name: p["fullName"],
+                        position: p["position"]["name"],
+                        number: p["jersey"],
+                        status: p["status"]["name"],
+                        is_drafted: false,
+                        team_name: player_hash["team"]["name"],
+                        team_location: player_hash["team"]["location"],
+                        team_logo: player_hash["team"]["logo"],
+                        image: p["headshot"],
+                        catagory: group["position"]                
+                    )
+                end
             end
         end
     end
