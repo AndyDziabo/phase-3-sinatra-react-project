@@ -57,19 +57,19 @@ end
 # Favorite.create(user_id: 6, player_id: 456, flex: 1, defense: 0, position: "Wide Receiver")
 # Favorite.create(user_id: 1, player_id: 765, flex: 1, defense: 0, position: "Tight End")
 
-puts "Seeding Users..."
+# puts "Seeding Users..."
 
-User.create(name: "Miranda", team_name: "Bees Knees")
-User.create(name: "Tom", team_name: "Tom's Team")
-User.create(name: "Dave", team_name: "Crushers")
-User.create(name: "Amy", team_name: "Panthers")
-User.create(name: "Steve", team_name: "Lions")
-User.create(name: "Tim", team_name: "Tim's Team")
-User.create(name: "John", team_name: "Snakes")
-User.create(name: "Sam", team_name: "Team Awesome")
-User.create(name: "Brandon", team_name: "Bruisers")
+# User.create(name: "Miranda", team_name: "Bees Knees")
+# User.create(name: "Tom", team_name: "Tom's Team")
+# User.create(name: "Dave", team_name: "Crushers")
+# User.create(name: "Amy", team_name: "Panthers")
+# User.create(name: "Steve", team_name: "Lions")
+# User.create(name: "Tim", team_name: "Tim's Team")
+# User.create(name: "John", team_name: "Snakes")
+# User.create(name: "Sam", team_name: "Team Awesome")
+# User.create(name: "Brandon", team_name: "Bruisers")
 
-puts "Seeding Teams..."
+# puts "Seeding Teams..."
 
 # Team.create(name: "Bees Knees", user_id: 1, player_id: 18, starter: true)
 # Team.create(name: "Bees Knees", user_id: 1, player_id: 19, starter: false)
@@ -84,4 +84,4 @@ puts "Seeding Teams..."
 # Team.create(name: "Bees Knees", user_id: 1, player_id: 33, starter: false)
 # Team.create(name: "Bees Knees", user_id: 1, player_id: 37, starter: true)
 
-# puts "Done seeding!"
+puts "Done seeding!"

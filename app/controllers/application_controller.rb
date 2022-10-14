@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     count.to_json
   end
 
+  get '/user_info/:id' do
+    user = User.find(params[:id])
+    user.to_json
+  end
+
   get "/players" do
     player = Player.all
     player.to_json
