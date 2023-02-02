@@ -1,28 +1,21 @@
-
 <h1>Fantasy Football App</h1>
 
-Our Fantasy Football Website lets users create a group of teams to go head to head vs the people they invite to their group. It will let users favorite players that they would like to get drafted into their team and our draft simulation will draft a team based on the players they favorited. Once the user has their team drafted they will get the ability to start and bench players.
-
-Live demo: 
-
-
-
-
-
-
-
-
+Fantasy Football app lets users create teams to go head to head with each other. Users can make a list of thier favorite players that they would like to draft. Once the user drafts all their players, they can goto their team section where they can control which players they start and which players they leave on the bench.
+</br></br>
+To view a video demo of the app visit <a href="https://andrewdziabo.dev/" target="_blank">AndrewDziabo.dev</a> and goto the projects section.
 
 
 <h2>How to set up</h2>
 
-<li> (Backend: https://github.com/AndyDziabo/phase-3-project-frontend)</li>
+
 <ol>
-<li> Clone this frontend repository onto your local machine.
-<li> Clone backend
-<li> while in the backend run bundle install
-<li> while in the backend run rake server to get the server up and running
-<li>Go back to the Front end and run npx create-react-app my-app-frontend
+<li> Clone this Backend repository onto your local machine</li>
+<li> Clone Front end repository using the following link</li>
+<li> (Front end: https://github.com/AndyDziabo/phase-3-project-frontend)</li>
+<li> in the Backend terminal run <code>bundle install</code> to install</li>
+<li> then in the backend terminal run <code>bundle exec rake server</code> to get the server up and running</li>
+<li> in the Front end terminal run <code>npm install</code> to install</li>
+<li> then in the Front end terminal run <code>npm start</code></li>
 </ol>
 
 <h2>Technologies Used </h2>
@@ -30,12 +23,4 @@ Live demo:
 <li> Ruby
 <li> Sinatra
 <li> React
-
-
-<h2>Features</h2>
-<ul>
-<li> Draft send POST (add player to favorites)
-<li> Draft send DELETE (remove player to favorites)
-<li> Patch send Update (if player is drafted)
-<li> Patch send Update (starting position)
 </ul>
